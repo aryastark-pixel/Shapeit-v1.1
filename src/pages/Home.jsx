@@ -7,7 +7,7 @@ import Team from '../components/home/Team';
 import Testimonials from '../components/home/Testimonials';
 import Contact from '../components/home/Contact';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <main className="overflow-hidden">
       <Hero />

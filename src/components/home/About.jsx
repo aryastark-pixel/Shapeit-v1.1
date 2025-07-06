@@ -1,7 +1,9 @@
+// ✅ Converted File: src/components/home/About.jsx
+
 import React from 'react';
 import { CheckCircle, TrendingUp, Users, Shield } from 'lucide-react';
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <section id="about" className="py-24 bg-slate-900 text-white overflow-hidden relative">
       {/* Background elements */}

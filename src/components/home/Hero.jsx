@@ -1,8 +1,10 @@
+// ✅ File: src/components/home/Hero.jsx
+
 import React from 'react';
 import { ArrowRight, Code, PenTool, BarChart4 } from 'lucide-react';
 import { Link } from '../ui/Link';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background elements */}
@@ -10,8 +12,6 @@ const Hero: React.FC = () => {
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
         <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-purple-600 rounded-full filter blur-3xl opacity-10"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-400 rounded-full filter blur-3xl opacity-10"></div>
-        
-        {/* Grid pattern */}
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:40px_40px]"></div>
       </div>
 
@@ -21,15 +21,15 @@ const Hero: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></span>
             Transforming ideas into digital reality
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Elevate Your Business Ideas With <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Cutting Edge</span> Technology
           </h1>
-          
+
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl">
-          We design innovative digital solutions for businesses of all sizes, from micro and small enterprises to large corporations,empowering them to bring their ideas to life in today’s competitive landscape. Our team of experts combines technical excellence with a creative outlook, helping you to shape your vision through IT.
+            We design innovative digital solutions for businesses of all sizes, from micro and small enterprises to large corporations, empowering them to bring their ideas to life in today’s competitive landscape. Our team of experts combines technical excellence with a creative outlook, helping you to shape your vision through IT.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
             <Link 
               href="#contact" 
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
               View Our Work
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
             {[
               { 

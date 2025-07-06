@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  image: string;
-  description: string;
-  tags: string[];
-  caseStudyUrl: string;
-}
-
-const projects: Project[] = [
+const projects = [
   {
     id: '1',
     title: 'Detan Finance',
@@ -19,7 +9,7 @@ const projects: Project[] = [
     image: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     description: 'A comprehensive dashboard for financial SIP and Mutual Funds data visualization',
     tags: ['React.tsx', 'Tailwindcss', 'Python'],
-    caseStudyUrl:'https://www.detan.in'
+    caseStudyUrl: 'https://www.detan.in'
   },
   {
     id: '2',
@@ -28,7 +18,7 @@ const projects: Project[] = [
     image: 'https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     description: 'Digital business platform',
     tags: ['React.tsx', 'Tailwind'],
-    caseStudyUrl:'https://connect4collab.in',
+    caseStudyUrl: 'https://connect4collab.in',
   },
   {
     id: '3',
@@ -37,7 +27,7 @@ const projects: Project[] = [
     image: 'https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     description: 'A secure database management system transiting data across many users',
     tags: ['Django', 'React.jsx', 'PostgreSQL'],
-    caseStudyUrl:'',
+    caseStudyUrl: '',
   },
   {
     id: '4',
@@ -46,19 +36,18 @@ const projects: Project[] = [
     image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     description: '',
     tags: ['React.jsx', 'Tailwindcss'],
-    caseStudyUrl:'https://ririana.in',
+    caseStudyUrl: 'https://ririana.in',
   },
-  
 ];
 
 const categories = ['All', ...Array.from(new Set(projects.map(project => project.category)))];
 
-const Portfolio: React.FC = () => {
+const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [activeProject, setActiveProject] = useState(null);
 
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
+  const filteredProjects = activeCategory === 'All'
+    ? projects
     : projects.filter(project => project.category === activeCategory);
 
   return (
@@ -71,7 +60,7 @@ const Portfolio: React.FC = () => {
             Explore our portfolio of successful projects delivered across various industries and technologies.
           </p>
         </div>
-        
+
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map(category => (
             <button
@@ -87,30 +76,30 @@ const Portfolio: React.FC = () => {
             </button>
           ))}
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map(project => (
-            <div 
-              key={project.id} 
+            <div
+              key={project.id}
               className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-xl cursor-pointer"
               onClick={() => setActiveProject(project)}
             >
               <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
               </div>
-              
+
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                 <div className="bg-blue-600 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-3">
                   {project.category}
                 </div>
                 <h4 className="text-xl font-bold mb-2">{project.title}</h4>
                 <p className="text-white/80 text-sm line-clamp-2">{project.description}</p>
-                
+
                 <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-sm font-medium">View Project</span>
                   <ExternalLink className="h-4 w-4" />
@@ -120,21 +109,20 @@ const Portfolio: React.FC = () => {
           ))}
         </div>
       </div>
-      
-      {/* Project Modal */}
+
       {activeProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={() => setActiveProject(null)}>
-          <div 
+          <div
             className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-auto"
             onClick={e => e.stopPropagation()}
           >
             <div className="relative h-80">
-              <img 
-                src={activeProject.image} 
-                alt={activeProject.title} 
+              <img
+                src={activeProject.image}
+                alt={activeProject.title}
                 className="w-full h-full object-cover"
               />
-              <button 
+              <button
                 className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/40 transition-colors"
                 onClick={() => setActiveProject(null)}
               >
@@ -143,7 +131,7 @@ const Portfolio: React.FC = () => {
                 </svg>
               </button>
             </div>
-            
+
             <div className="p-8">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">{activeProject.title}</h3>
@@ -151,15 +139,15 @@ const Portfolio: React.FC = () => {
                   {activeProject.category}
                 </span>
               </div>
-              
+
               <p className="text-gray-700 mb-6">{activeProject.description}</p>
-              
+
               <div className="mb-8">
                 <h4 className="text-lg font-semibold mb-3">Technologies Used</h4>
                 <div className="flex flex-wrap gap-2">
                   {activeProject.tags.map((tag, index) => (
-                    <span 
-                      key={index} 
+                    <span
+                      key={index}
                       className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm"
                     >
                       {tag}
@@ -167,17 +155,19 @@ const Portfolio: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="flex justify-end">
-                <a 
-                  href={activeProject.caseStudyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
-                >
-                  View Project
-                  <ExternalLink className="h-4 w-4" />
-                </a>
+                {activeProject.caseStudyUrl && (
+                  <a
+                    href={activeProject.caseStudyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
+                  >
+                    View Project
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             </div>
           </div>

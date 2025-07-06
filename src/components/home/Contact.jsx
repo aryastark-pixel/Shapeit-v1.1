@@ -1,16 +1,10 @@
+// ✅ File: src/components/home/Contact.jsx
+
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, Check } from 'lucide-react';
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-}
-
-const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
+const Contact = () => {
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
@@ -21,15 +15,15 @@ const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -51,12 +45,11 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 bg-white relative overflow-hidden">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-50 rounded-bl-full"></div>
         <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-amber-50 rounded-tr-full"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">Get In Touch</h2>
@@ -65,30 +58,30 @@ const Contact: React.FC = () => {
             Have a project in mind or want to learn more about our services? We'd love to hear from you.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl p-8 text-white">
             <h4 className="text-2xl font-bold mb-6">Let's start a conversation</h4>
             <p className="mb-8 text-blue-100">
               Whether you have a question about our services, pricing, or just want to say hello, we're here to help.
             </p>
-            
+
             <div className="space-y-6">
               {[
-                { 
-                  icon: <MapPin className="h-6 w-6 text-blue-200" />, 
-                  title: "Visit our office", 
-                  content: "Samdong Kambal, Gangtok, Sikkim" 
+                {
+                  icon: <MapPin className="h-6 w-6 text-blue-200" />,
+                  title: "Visit our office",
+                  content: "Samdong Kambal, Gangtok, Sikkim"
                 },
-                { 
-                  icon: <Phone className="h-6 w-6 text-blue-200" />, 
-                  title: "Call us", 
-                  content: "+91 8101652485" 
+                {
+                  icon: <Phone className="h-6 w-6 text-blue-200" />,
+                  title: "Call us",
+                  content: "+91 8101652485"
                 },
-                { 
-                  icon: <Mail className="h-6 w-6 text-blue-200" />, 
-                  title: "Email us", 
-                  content: "info@shapeit.in" 
+                {
+                  icon: <Mail className="h-6 w-6 text-blue-200" />,
+                  title: "Email us",
+                  content: "info@shapeit.in"
                 }
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
@@ -100,7 +93,7 @@ const Contact: React.FC = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-12">
               <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl">
                 <h5 className="text-xl font-semibold mb-4">Operating Hours</h5>
@@ -121,7 +114,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-8 relative">
             {isSubmitted ? (
               <div className="absolute inset-0 flex items-center justify-center bg-white rounded-2xl">
@@ -136,7 +129,7 @@ const Contact: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit}>
                 <h4 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h4>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="name">
@@ -153,7 +146,7 @@ const Contact: React.FC = () => {
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="email">
                       Email Address
@@ -170,7 +163,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="phone">
@@ -186,7 +179,7 @@ const Contact: React.FC = () => {
                       placeholder="(+91) 123-456-7892"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="subject">
                       Subject
@@ -208,7 +201,7 @@ const Contact: React.FC = () => {
                     </select>
                   </div>
                 </div>
-                
+
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="message">
                     Message
@@ -224,7 +217,7 @@ const Contact: React.FC = () => {
                     required
                   ></textarea>
                 </div>
-                
+
                 <button
                   type="submit"
                   className={`w-full py-3 px-6 flex items-center justify-center rounded-lg font-semibold text-white transition-all duration-300 ${
@@ -252,19 +245,16 @@ const Contact: React.FC = () => {
       </div>
 
       <div className="mt-24 w-full h-96 relative">
-
-          <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3543.2255212519226!2d88.486730674911!3d27.36867144034855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDIyJzA3LjIiTiA4OMKwMjknMjEuNSJF!5e0!3m2!1sen!2sin!4v1745239053734!5m2!1sen!2sin" 
-              width="600" 
-              height="450" 
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy" 
-              className="absolute inset-0 w-full h-full"
-              title="Office Location">
-                
-              </iframe>
-
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3543.2255212519226!2d88.486730674911!3d27.36867144034855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDIyJzA3LjIiTiA4OMKwMjknMjEuNSJF!5e0!3m2!1sen!2sin!4v1745239053734!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full"
+          title="Office Location"
+        ></iframe>
       </div>
     </section>
   );

@@ -1,14 +1,7 @@
 import React from 'react';
 
-interface LinkProps {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-}
-
-export const Link: React.FC<LinkProps> = ({ href, children, className = '', onClick }) => {
-  const handleClick = (e: React.MouseEvent) => {
+export const Link = ({ href, children, className = '', onClick }) => {
+  const handleClick = (e) => {
     if (href.startsWith('#')) {
       e.preventDefault();
       const element = document.querySelector(href);
