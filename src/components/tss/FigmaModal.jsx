@@ -76,7 +76,7 @@ const FigmaModal = () => {
             <button className="close-button" onClick={() => setHardwareOpen(false)}>✖</button>
             <iframe
               title="Hardware Prototype"
-              src="https://drive.google.com/file/d/1O_uYhaXoamZmS9SmyYAGBNLq-XsWTWu9/preview"
+              src="https://drive.google.com/file/d/1-YN4pQl23F1PbHCpIzFhNKSUBp-D3nVW/preview"
               className="hardware-video-frame"
               allow="autoplay; encrypted-media"
               allowFullScreen
