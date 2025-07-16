@@ -2,8 +2,6 @@ import React, { useRef, useEffect } from "react";
 import HeroSection from "../components/tss/HeroSection";
 import BoostCards from "../components/tss/BoostCards";
 import FigmaModal from "../components/tss/FigmaModal";
-
-// ✅ Import component-level CSS
 import "../components/tss/HeroSection.css";
 import "../components/tss/BoostCards.module.css";
 import "../components/tss/FigmaModal.css";

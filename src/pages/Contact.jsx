@@ -1,4 +1,4 @@
-// ✅ File: src/components/home/Contact.jsx
+
 
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, Check } from 'lucide-react';

@@ -1,4 +1,4 @@
-// ✅ Converted File: src/components/home/About.jsx
+
 
 import React from 'react';
 import { CheckCircle, TrendingUp, Users, Shield } from 'lucide-react';
