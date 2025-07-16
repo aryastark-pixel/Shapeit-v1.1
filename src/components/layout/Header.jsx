@@ -45,7 +45,7 @@ const Header = () => {
             {['Portfolio', 'About', 'Team', 'Testimonials', 'Contact'].map((item) => (
               <Link
                 key={item}
-                href={`/${item.toLowerCase()}`} // ⬅️ change from `#about` to `/about`
+                href={`/${item.toLowerCase()}`}
                 className="font-medium text-sm transition-colors text-gray-100 hover:text-white"
               >
                 {item}

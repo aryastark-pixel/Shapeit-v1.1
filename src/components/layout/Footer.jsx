@@ -1,12 +1,26 @@
 import React from 'react';
-import { Linkedin, Github as GitHub, Mail , ArrowRight } from 'lucide-react';
+import { Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Link } from '../ui/Link';
+import { useNavigate } from 'react-router-dom';
 
-const Footer= () => {
+const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleServiceClick = () => {
+    navigate('/#services');
+    setTimeout(() => {
+      const section = document.getElementById('services');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <footer className="bg-slate-900 text-white pt-20 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
           {/* Branding & Social */}
           <div>
             <Link
@@ -21,8 +35,7 @@ const Footer= () => {
             <div className="flex space-x-4">
               {[
                 { icon: <Linkedin className="h-5 w-5" />, href: 'https://www.linkedin.com/company/shape-it-in/' },
-                  {icon: <Mail className="h-5 w-5" />, href: 'mailto:shapeit.india@gmail.com'}
-                // { icon: <GitHub className="h-5 w-5" />, href: '' }
+                { icon: <Mail className="h-5 w-5" />, href: 'mailto:shapeit.india@gmail.com' }
               ].map((social, index) => (
                 <a
                   key={index}
@@ -39,7 +52,12 @@ const Footer= () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
+            <button
+              onClick={handleServiceClick}
+              className="text-lg font-semibold mb-6 text-white hover:text-blue-400 transition-colors duration-300"
+            >
+              Services
+            </button>
             <ul className="space-y-4">
               {[
                 'Custom Software Development',
@@ -49,14 +67,9 @@ const Footer= () => {
                 'AI & Machine Learning',
                 'UI/UX'
               ].map((service, index) => (
-                <li key={index}>
-                  <Link
-                    href="#services"
-                    className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
-                  >
-                    <ArrowRight className="h-4 w-4 mr-2 text-blue-500" />
-                    {service}
-                  </Link>
+                <li key={index} className="text-gray-400 flex items-center">
+                  <ArrowRight className="h-4 w-4 mr-2 text-blue-500" />
+                  <span>{service}</span>
                 </li>
               ))}
             </ul>
@@ -67,11 +80,11 @@ const Footer= () => {
             <h4 className="text-lg font-semibold mb-6">Company</h4>
             <ul className="space-y-4">
               {[
-                { name: 'About Us', href: '#about' },
-                { name: 'Our Team', href: '#team' },
-                { name: 'Portfolio', href: '#portfolio' },
-                { name: 'Testimonials', href: '#testimonials' },
-                { name: 'Contact', href: '#contact' }
+                { name: 'About Us', href: '/about' },
+                { name: 'Our Team', href: '/team' },
+                { name: 'Portfolio', href: '/portfolio' },
+                { name: 'Testimonials', href: '/testimonials' },
+                { name: 'Contact', href: '/contact' }
               ].map((link, index) => (
                 <li key={index}>
                   <Link

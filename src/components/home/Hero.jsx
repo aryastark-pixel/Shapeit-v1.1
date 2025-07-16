@@ -1,10 +1,9 @@
-// ✅ File: src/components/home/Hero.jsx
-
 import React from 'react';
 import { ArrowRight, Code, PenTool, BarChart4 } from 'lucide-react';
 import { Link } from '../ui/Link';
 
 const Hero = () => {
+  
   return (
     <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background elements */}
@@ -32,13 +31,13 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
             <Link 
-              href="#contact" 
+              href="/contact" 
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-lg transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center"
             >
               Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link 
-              href="#portfolio" 
+              href="/portfolio" 
               className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm border border-white/20 rounded-full font-semibold text-lg transition-colors duration-300"
             >
               View Our Work
