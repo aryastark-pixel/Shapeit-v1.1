@@ -49,9 +49,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0; /* No extra padding */
+  padding: 0; 
   z-index: 999;
-  overflow: hidden; /* Prevents scroll */
+  overflow: hidden; 
   padding-top: 40px;
 }
 
@@ -61,19 +61,19 @@
   border: 3px solid #f9f871;
   border-radius: 20px;
   box-shadow: 0 0 30px #f9f87188;
-  max-width: 420px;   /* Fix width to align with header constraints */
+  max-width: 420px;  
   width: 100%;
   height: auto;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;   /* No internal scroll */
+  overflow: hidden;  
 }
 
 .figma-frame {
   width: 100%;
-  height: 700px;     /* Adjust height to fit screen nicely without causing scroll */
+  height: 700px;     
   border: none;
   border-radius: 16px;
   pointer-events: auto;

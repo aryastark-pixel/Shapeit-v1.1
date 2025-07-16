@@ -8,8 +8,8 @@ import "../components/tss/HeroSection.css";
 import "../components/tss/BoostCards.module.css";
 import "../components/tss/FigmaModal.css";
 
-// ✅ Import global TSS-specific styles
-import "../styles/tss/App.css"; // This contains your `.app-root`, `.footer-min`, body, html styles
+
+import "../styles/tss/App.css"; 
 
 const TssApp = () => {
   const boostRef = useRef(null);

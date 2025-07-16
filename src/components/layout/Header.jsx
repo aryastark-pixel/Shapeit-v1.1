@@ -36,7 +36,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {['Services', 'Portfolio', 'About', 'Team', 'Testimonials', 'Contact'].map((item) => (
+            {['Services'].map((item) => (
               <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -45,16 +45,24 @@ const Header = () => {
                 {item}
               </Link>
             ))}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center">
-              Get Started <ChevronRight className="ml-1 h-4 w-4" />
-            </button>
+            {['Portfolio', 'About', 'Team', 'Testimonials', 'Contact'].map((item) => (
+              <Link
+                key={item}
+                href={`/${item.toLowerCase()}`} // ⬅️ change from `#about` to `/about`
+                className="font-medium text-sm transition-colors text-gray-100 hover:text-white"
+              >
+                {item}
+              </Link>
+
+            ))}
+            
             <Link
               href="/tss"
               className="bg-white text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-in-out transform hover:scale-105"
             >
               Our Product
             </Link>
-           
+
           </nav>
 
           {/* Mobile Navigation Toggle */}

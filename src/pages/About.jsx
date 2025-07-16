@@ -4,6 +4,7 @@ import React from 'react';
 import { CheckCircle, TrendingUp, Users, Shield } from 'lucide-react';
 
 const About = () => {
+  
   return (
     <section id="about" className="py-24 bg-slate-900 text-white overflow-hidden relative">
       {/* Background elements */}
