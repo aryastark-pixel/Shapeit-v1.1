@@ -5,18 +5,20 @@ import "./FigmaModal.css";
 const FigmaModal = () => {
   const [isAppOpen, setAppOpen] = useState(false);
   const [isHardwareOpen, setHardwareOpen] = useState(false);
+  const [videoLoading, setVideoLoading] = useState(true); // NEW
 
   useEffect(() => {
-    if (isAppOpen || isHardwareOpen) {
-      document.body.style.overflow = "hidden";
+    if (isHardwareOpen) {
+      document.body.classList.add("hide-header-and-scroll");
+      setVideoLoading(true); // reset loading on open
     } else {
-      document.body.style.overflow = "auto";
+      document.body.classList.remove("hide-header-and-scroll");
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.classList.remove("hide-header-and-scroll");
     };
-  }, [isAppOpen, isHardwareOpen]);
+  }, [isHardwareOpen]);
 
   return (
     <section className="preview-section">
@@ -54,7 +56,7 @@ const FigmaModal = () => {
         </motion.button>
       </div>
 
-      {/* Modal for App Preview */}
+      {/* App Preview */}
       {isAppOpen && (
         <div className="modal-overlay" onClick={() => setAppOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -69,17 +71,27 @@ const FigmaModal = () => {
         </div>
       )}
 
-      {/* Modal for Hardware Prototype */}
+      {/* Hardware Preview */}
       {isHardwareOpen && (
         <div className="hardware-fullscreen" onClick={() => setHardwareOpen(false)}>
           <div className="hardware-video-wrapper" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={() => setHardwareOpen(false)}>✖</button>
+
+            {videoLoading && (
+              <div className="video-loader">
+                <div className="spinner"></div>
+                <p className="loading-text"> Loading Preview...</p>
+              </div>
+            )}
+
             <iframe
               title="Hardware Prototype"
               src="https://drive.google.com/file/d/1-YN4pQl23F1PbHCpIzFhNKSUBp-D3nVW/preview"
               className="hardware-video-frame"
               allow="autoplay; encrypted-media"
               allowFullScreen
+              onLoad={() => setVideoLoading(false)}
+              style={{ overflow: "hidden" }}
             />
           </div>
         </div>
