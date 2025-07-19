@@ -112,9 +112,6 @@ const Header = () => {
                 {item}
               </Link>
             ))}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-base font-medium transition-all duration-300 ease-in-out mt-4 flex items-center justify-center">
-              Get Started <ChevronRight className="ml-2 h-5 w-5" />
-            </button>
           </nav>
         </div>
       </div>
