@@ -5,20 +5,38 @@ import "./FigmaModal.css";
 const FigmaModal = () => {
   const [isAppOpen, setAppOpen] = useState(false);
   const [isHardwareOpen, setHardwareOpen] = useState(false);
-  const [videoLoading, setVideoLoading] = useState(true); // NEW
+  const [videoLoading, setVideoLoading] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    const isModalOpen = isAppOpen || isHardwareOpen;
+
+    if (isModalOpen) {
+      const scrollTop = window.scrollY;
+      setScrollY(scrollTop);
+
+      document.body.classList.add("scroll-lock");
+      document.body.style.top = `-${scrollTop}px`;
+    } else {
+      document.body.classList.remove("scroll-lock");
+      document.body.style.top = "";
+      window.scrollTo(0, scrollY);
+    }
+
+    
     if (isHardwareOpen) {
       document.body.classList.add("hide-header-and-scroll");
-      setVideoLoading(true); // reset loading on open
+      setVideoLoading(true); 
     } else {
       document.body.classList.remove("hide-header-and-scroll");
     }
 
     return () => {
+      document.body.classList.remove("scroll-lock");
+      document.body.style.top = "";
       document.body.classList.remove("hide-header-and-scroll");
     };
-  }, [isHardwareOpen]);
+  }, [isAppOpen, isHardwareOpen]);
 
   return (
     <section className="preview-section">
@@ -46,7 +64,10 @@ const FigmaModal = () => {
 
         <motion.button
           className="preview-button"
-          onClick={() => setHardwareOpen(true)}
+          onClick={() => {
+            setVideoLoading(true);
+            setHardwareOpen(true);
+          }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
@@ -80,7 +101,7 @@ const FigmaModal = () => {
             {videoLoading && (
               <div className="video-loader">
                 <div className="spinner"></div>
-                <p className="loading-text"> Loading Preview...</p>
+                <p className="loading-text">Loading Preview...</p>
               </div>
             )}
 
