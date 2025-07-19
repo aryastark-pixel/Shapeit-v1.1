@@ -34,7 +34,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          Your Safety, Our Priority
+          Public Safety and Security is Our Top Priority.
         </motion.p>
 
         <motion.div
@@ -45,7 +45,8 @@ const HeroSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <p className="hero-tagline">
-            Empowering citizens with <span className="highlight">real-time alerts</span>,
+            Empowering Sikkimese with <span className="highlight">real-time alerts</span>,
+             <span className="highlight"> Tiered-SOS </span>,
             <span className="highlight"> safety tips</span>, and
             <span className="highlight"> emergency access</span>.
           </p>

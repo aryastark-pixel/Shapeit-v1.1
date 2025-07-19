@@ -16,23 +16,23 @@ const BoostCards = forwardRef((props, ref) => {
 
   const cards = [
     {
-      title: "Real-Time Alerts",
-      description: "Get notified instantly about natural disasters near you.      ",
+      title: "Real-Time Emergency Alerts",
+      description: "Get notified instantly about local emergencies directly on your device from the department.",
       img: "/tss-assets/alert.svg"
     },
     {
       title: "Verified Tips",
-      description: "Access safety protocols from certified sources.",
+      description: "Access safety protocols issued directly by The Government.",
       img: "/tss-assets/tips.svg"
     },
     {
-      title: "Emergency Contacts",
-      description: "Reach out quickly with one-tap emergency helplines.",
+      title: "Tiered SOS and Emergency Contacts",
+      description: "Reach out quickly in times of distress with one-tap SOS signal and pre-loaded emergency contacts.",
       img: "/tss-assets/emergency.svg"
     },
     {
       title: "Local Updates",
-      description: "Stay updated with community-specific news.           ",
+      description: "Stay updated with community-specific news and events.           ",
       img: "/tss-assets/updates.svg"
     }
   ];
@@ -66,7 +66,7 @@ const BoostCards = forwardRef((props, ref) => {
         transition={{ duration: 0.7, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <span className={styles.gradientText}>Empowering Safety Experiences.</span>{" "}
+        <span className={styles.gradientText}>Safety, Security And Welfare Always Comes First!</span>{" "}
       
       </motion.h2>
 

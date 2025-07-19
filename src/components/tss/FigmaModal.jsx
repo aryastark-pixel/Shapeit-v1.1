@@ -58,7 +58,7 @@ const FigmaModal = () => {
 
       {/* App Preview */}
       {isAppOpen && (
-        <div className="modal-overlay" onClick={() => setAppOpen(false)}>
+        // <div className="modal-overlay" onClick={() => setAppOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={() => setAppOpen(false)}>✖</button>
             <iframe
@@ -67,7 +67,7 @@ const FigmaModal = () => {
               className="figma-frame"
               allowFullScreen
             />
-          </div>
+          {/* </div> */}
         </div>
       )}
 
